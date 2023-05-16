@@ -1,0 +1,17 @@
+.reset-button {
+    background-color: #61dafb;
+    border: none;
+    cursor: pointer;
+    height: 5rem;
+    width: 10rem;
+    font-size: 1.7rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 2rem;
+    transition-timing-function: ease;
+    transition: background-color .5s, color .5s;
+}
+
+.reset-button:hover {
+    background-color: red;
+    color: aliceblue;
+}
