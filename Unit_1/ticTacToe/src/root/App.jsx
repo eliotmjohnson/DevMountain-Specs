@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../assets/reset.css"
+import "../assets/reset.css";
 import "./App.css";
 import Square from "../components/Square/Square";
 import ResetButton from "../components/ResetButton/ResetButton";
@@ -36,6 +36,7 @@ function App() {
 				{squares.map((val, index) => {
 					return (
 						<Square
+							key={index}
 							index={index}
 							squareValue={val}
 							squares={squares}
