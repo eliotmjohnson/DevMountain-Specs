@@ -1,0 +1,28 @@
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border: red solid .3rem;
+    min-height: 20rem;
+    max-height: 50rem;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    color: aliceblue;
+}
+
+.box>img {
+    max-width: 90%;
+    min-width: 50%;
+    max-height: 50rem;
+}
+
+.before {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.hello-world {
+    opacity: 1;
+}
