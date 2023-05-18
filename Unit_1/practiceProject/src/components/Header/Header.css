@@ -5,15 +5,34 @@
     background-color: red;
     padding: 2rem;
     height: 8rem;
+    border-bottom: .2rem solid aliceblue;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .header h1 {
-    font-size: 3rem;
-    color: blue;
+    font-size: 4rem;
+    color: aliceblue;
+    position: relative;
+    z-index: 1;
+}
+
+.logo{
+    height: 20rem;
+    opacity: .4;
+    position: absolute;
+    right: 10rem;
+    transform: rotate(10deg);
+}
+
+.header-logo{
+    height: 4rem;
 }
 
 #lol {
-    color: royalblue;
+    color: aliceblue;
 }
 
 @keyframes fun {

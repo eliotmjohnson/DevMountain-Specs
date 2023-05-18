@@ -2,13 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    border: red solid .3rem;
+    background-color: aliceblue;
+    border-bottom: solid red .4rem;
     min-height: 20rem;
     max-height: 50rem;
     padding: 1rem;
     margin: 1rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
+    overflow-y: hidden;
     color: aliceblue;
 }
 
@@ -20,9 +21,11 @@
 
 .before {
     opacity: 0;
-    transition: opacity 1s;
+    transform: translateY(10rem);
+    transition: opacity 1s, transform 1s;
 }
 
 .hello-world {
+    transform: translateY(0);
     opacity: 1;
 }

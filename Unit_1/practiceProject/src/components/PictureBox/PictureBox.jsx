@@ -4,7 +4,7 @@ import "./PictureBox.css";
 const PictureBox = (props) => {
 	const [ref, isVisible] = useInView({
 		threshold: 0.6,
-		unobserveOnEnter: false,
+		unobserveOnEnter: true,
 	});
 
 	let classes = "before";
