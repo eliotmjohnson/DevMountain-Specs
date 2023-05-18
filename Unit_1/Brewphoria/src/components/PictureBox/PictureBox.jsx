@@ -1,21 +1,35 @@
-import { useInView } from "react-hook-inview";
+import { useInView } from "react-intersection-observer";
+import { useState } from "react";
+import { useEffect } from "react";
 import "./PictureBox.css";
 
 const PictureBox = (props) => {
-	const [ref, isVisible] = useInView({
-		threshold: 0.6,
-		unobserveOnEnter: true,
+	const [options, setOptions] = useState({
+		triggerOnce: true,
+		threshold: 0.8,
 	});
 
-	let classes = "before";
+	const [ref, isVisible] = useInView(options);
 
-	if (isVisible) {
-		classes = "before hello-world";
-	}
+	const changeThresh = () => {
+		setOptions((prev) => {
+			return {
+				...prev,
+				threshold: 0.6,
+			};
+		});
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", changeThresh);
+	}, []);
 
 	return (
 		<div ref={ref} className="box">
-			<img className={classes} src={props.url} />
+			<img
+				className={isVisible ? "before  hello-world" : "before"}
+				src={props.url}
+			/>
 		</div>
 	);
 };
