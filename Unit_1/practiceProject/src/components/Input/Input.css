@@ -1,0 +1,10 @@
+.form {
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.form button {
+    cursor: pointer;
+}

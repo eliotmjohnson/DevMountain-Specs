@@ -1,0 +1,23 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.list-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cross-item {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.list-item button{
+    color: blue;
+    cursor: pointer;
+}
