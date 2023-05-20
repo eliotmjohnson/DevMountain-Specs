@@ -1,0 +1,8 @@
+.error-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30rem;
+    width: 100%;
+    font-size: 5rem;
+}

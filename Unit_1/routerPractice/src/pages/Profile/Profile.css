@@ -1,0 +1,10 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headshot {
+    height: 30rem;
+    margin: 2rem;
+}
