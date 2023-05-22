@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    padding: 2rem;
+}
+
+.header>h1 {
+    font-size: 4rem;
+}
+
+.header>button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);;
+    background-color: black;
+    color: aliceblue;
+    z-index: 0;
+}

@@ -1,3 +1,6 @@
 [submodule "Unit_1/ticTacToe"]
 	path = Unit_1/ticTacToe
 	url = https://github.com/eliotmjohnson/DMSpecs-Project-1
+[submodule "Unit_2/projectTwo"]
+	path = Unit_2/projectTwo
+	url = https://github.com/eliotmjohnson/DMSpecs-Project-2
