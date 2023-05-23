@@ -1,19 +1,20 @@
 import "./MovieCard.css";
+import { useState } from "react";
 
 const MovieCard = (props) => {
 	const sendMovieToWatchlist = (title) => {
 		props.sendMovieData(title);
 	};
-	
+
 	return (
-		<div className="movie-card">
+		<div className={`movie-card ` + props.classes}>
 			<img src={props.image} />
 			<h1>{props.title}</h1>
 			<h3>{props.releaseDate}</h3>
 			<p>{props.description}</p>
-			{props.button === "true" ? <button onClick={() => sendMovieToWatchlist(props.title)}>
-				Add to Watchlist
-			</button> : ""}
+			<button onClick={() => sendMovieToWatchlist(props.title)}>
+				{props.buttonTitle}
+			</button>
 		</div>
 	);
 };

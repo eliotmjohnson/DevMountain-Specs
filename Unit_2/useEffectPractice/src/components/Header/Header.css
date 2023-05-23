@@ -1,23 +1,26 @@
 .header {
     display: flex;
     justify-content: center;
-    background-color: red;
+    background-color: #000814;
     padding: 2rem;
 }
 
 .header>h1 {
     font-size: 4rem;
+    color: #FFD60A;
 }
 
 .header>button {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    height: 5rem;
-    width: 5rem;
+    height: 7rem;
+    width: 7rem;
+    font-size: 1.3rem;
+    border: none;
     border-radius: 5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);;
-    background-color: black;
+    box-shadow: 0 0px 10px rgb(255, 255, 255);
+    background-image: linear-gradient(to right, #FFD60A, #302b63, crimson);
     color: aliceblue;
     z-index: 0;
 }
