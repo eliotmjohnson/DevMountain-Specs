@@ -1,0 +1,12 @@
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.reducer-test {
+    color: black;
+    background-color: red;
+    height: max-content;
+    width: max-content;
+    transition: height 3s, width 3s;
+}

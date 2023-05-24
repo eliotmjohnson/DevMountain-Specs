@@ -1,0 +1,30 @@
+.title {
+    font-size: 4rem;
+    width: max-content;
+    cursor: pointer;
+}
+
+.title-test {
+    transition: font-size 3s;
+    font-size: 10rem;
+    width: max-content;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 10rem;
+}
+
+.container>div>input {
+    transition: scale .5s, padding-left .5s, outline-color .5s;
+}
+
+.container>div>input:focus {
+    scale: 4;
+    padding-left: 2rem;
+    outline-color: aquamarine;
+    border-radius: 2rem;
+}
