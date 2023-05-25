@@ -2,6 +2,7 @@
     font-size: 4rem;
     width: max-content;
     cursor: pointer;
+    transition: font-size 3s, color .5s;
 }
 
 .title-test {

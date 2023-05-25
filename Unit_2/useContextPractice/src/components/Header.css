@@ -1,6 +1,7 @@
 .header{
     display: flex;
     justify-content: center;
+    transition: height 3s, width 3s;
 }
 
 .reducer-test {

@@ -1,0 +1,28 @@
+.todo-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.li-container {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.todo-item button {
+    height: max-content;
+    width: max-content;
+    font-size: .7rem;
+}
+
+.todo-item>img {
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    gap: .5rem;
+}

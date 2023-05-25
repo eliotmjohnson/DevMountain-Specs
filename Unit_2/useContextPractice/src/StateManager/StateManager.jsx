@@ -1,13 +1,15 @@
-import { createContext, useReducer, useContext } from "react";
+import { createContext, useReducer, useContext, useRef } from "react";
 
-export const State = createContext(null);
+export const State = createContext();
 export const StateDispatch = createContext(null);
 
 export const StateProvider = (props) => {
+	const titleRef = useRef(null);
+	const anotherRef = useRef(null);
 	const [state, dispatch] = useReducer(stateReducer, "");
 
 	return (
-		<State.Provider value={state}>
+		<State.Provider value={{ state, refs: { titleRef, anotherRef } }}>
 			<StateDispatch.Provider value={dispatch}>
 				{props.children}
 			</StateDispatch.Provider>

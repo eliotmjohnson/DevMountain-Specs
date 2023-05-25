@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 5px 0 rgb(0, 0, 0, .5);
+    background-color: dodgerblue;
+    width: 30vw;
+}
+
+.header>h1 {
+    font-size: 3rem;
+    color: aliceblue;
+}

@@ -89,7 +89,7 @@ const MovieDisplay = (props) => {
 						buttonTitle={
 							!movie.inWatchlist ? "Add to Watchlist" : "Remove From Watchlist"
 						}
-					></MovieCard>
+					/>
 				);
 			})}
 			{props.modal
@@ -109,7 +109,7 @@ const MovieDisplay = (props) => {
 												image={`https://image.tmdb.org/t/p/original${movie.image}`}
 												sendMovieData={sendToWatchlist}
 												buttonTitle="Remove From Watchlist"
-											></MovieCard>
+											/>
 										);
 									})}
 								</main>

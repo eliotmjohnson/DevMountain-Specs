@@ -6,7 +6,7 @@ import {
 import { useRef } from "react";
 
 const HeaderTitle = () => {
-	const state = useGlobalState();
+	const { state, refs } = useGlobalState();
 	const stateDispatcher = useGlobalStateDispatch();
 	const input = useRef(null);
 
@@ -42,7 +42,7 @@ const HeaderTitle = () => {
 			<div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
 				<input type="text" onChange={handleChange} ref={input} />
 			</div>
-			<h2>{state.inputValue}</h2>
+			<h2 ref={refs.titleRef}>{state.inputValue}</h2>
 		</div>
 	);
 };
