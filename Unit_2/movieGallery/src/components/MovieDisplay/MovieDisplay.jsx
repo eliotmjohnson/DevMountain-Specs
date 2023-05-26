@@ -12,7 +12,7 @@ const MovieDisplay = (props) => {
 		const instance = axios.create({
 			headers: {
 				Authorization:
-					"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYWI4ZDBkNTkwODA3YTdiNTk3Nzk2MGY3YzkwOTM5ZCIsInN1YiI6IjY0NmJhNmQ5YTUwNDZlMDE0NzRlMWNjYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.taJRNjdm63R51f9DF1oozDZ22OPo_MagjLESx4Z7KW0",
+					`${import.meta.env.VITE_MOVIE_API_KEY}`,
 			},
 		});
 

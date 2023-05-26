@@ -5,7 +5,7 @@ import { useGlobalDispatch } from "../../store/StateManager";
 const InputForm = () => {
 	const inputValue = useRef();
 	const dispatch = useGlobalDispatch();
-	console.log("app running")
+
 	const addTodo = (e) => {
 		e.preventDefault();
 		if (inputValue.current.value.trim() !== "") {
