@@ -7,38 +7,57 @@ import axios from "axios";
 const MovieDisplay = (props) => {
 	const [movieData, setMovieData] = useState([]);
 	const [watchlist, setWatchlist] = useState([]);
+	const [isLoading, setLoading] = useState(false);
+	const [page, setPage] = useState(1);
+	const [error, setError] = useState({ value: false, error: "" });
+	const [classChange, setClassChange] = useState();
+	const [timeout, setStateTimeout] = useState(0);
 
-	const getMovieData = () => {
-		const instance = axios.create({
-			headers: {
-				Authorization:
-					`${import.meta.env.VITE_MOVIE_API_KEY}`,
-			},
-		});
+	const getMovieData = async () => {
+		setClassChange((prev) => "");
 
-		instance
-			.get(`https://api.themoviedb.org/3/movie/top_rated`)
-			.then((res) => {
-				const movieArr = res.data.results;
+		setTimeout(() => {
+			const instance = axios.create({
+				headers: {
+					Authorization: `${import.meta.env.VITE_MOVIE_API_KEY}`,
+				},
+			});
 
-				setMovieData(
-					movieArr.map((movie) => {
-						return {
-							title: movie.original_title,
-							releaseDate: movie.release_date,
-							description: movie.overview,
-							image: movie.poster_path,
-							inWatchlist: false,
-						};
+			setError((prev) => {
+				return { ...prev, value: false, error: error };
+			});
+
+			setLoading(true);
+			instance
+				.get(`https://api.themoviedb.org/3/movie/top_rated/?page=${page}`)
+				.then((res) => {
+					setLoading(false);
+					const movieArr = res.data.results;
+
+					setMovieData(
+						movieArr.map((movie) => {
+							return {
+								title: movie.original_title,
+								releaseDate: movie.release_date,
+								description: movie.overview,
+								image: movie.poster_path,
+								inWatchlist: false,
+							};
+						})
+					);
+					setClassChange((prev) => "movie-display-appear");
+				})
+				.catch((error) =>
+					setError((prev) => {
+						return { ...prev, value: true, error: error };
 					})
 				);
-			})
-			.catch((error) => console.log(error));
+		}, timeout);
 	};
 
 	useEffect(() => {
 		getMovieData();
-	}, []);
+	}, [page]);
 
 	const sendToWatchlist = (title) => {
 		const sortedMovie = movieData.filter((movie) => movie.title === title);
@@ -74,30 +93,60 @@ const MovieDisplay = (props) => {
 		}
 	};
 
+	const nextPage = () => {
+		setStateTimeout(400)
+		setPage((prev) => {
+			return prev + 1;
+		});
+	};
+
+	const prevPage = () => {
+		if (page > 1) {
+			setPage((prev) => {
+				return prev - 1;
+			});
+		}
+	};
+
 	return (
-		<main className="movie-display">
-			{movieData.map((movie) => {
-				return (
-					<MovieCard
-						key={movie.title}
-						classes=""
-						title={movie.title}
-						description={movie.description}
-						releaseDate={movie.releaseDate}
-						image={`https://image.tmdb.org/t/p/original${movie.image}`}
-						sendMovieData={sendToWatchlist}
-						buttonTitle={
-							!movie.inWatchlist ? "Add to Watchlist" : "Remove From Watchlist"
-						}
-					/>
-				);
-			})}
+		<main className={`movie-display ` + classChange}>
+			{isLoading ? (
+				<h1 style={{ fontSize: "5rem", color: "aliceblue" }}>
+					{error.value
+						? `${String(error.error).replace("Axios", "")}`
+						: "Loading..."}
+				</h1>
+			) : (
+				<>
+					<button onClick={prevPage}>Back</button>
+					<button onClick={nextPage}>Next</button>
+					{movieData.map((movie) => {
+						return (
+							<MovieCard
+								key={movie.title}
+								classes=""
+								title={movie.title}
+								description={movie.description}
+								releaseDate={movie.releaseDate}
+								image={`https://image.tmdb.org/t/p/original${movie.image}`}
+								sendMovieData={sendToWatchlist}
+								buttonTitle={
+									!movie.inWatchlist
+										? "Add to Watchlist"
+										: "Remove From Watchlist"
+								}
+							/>
+						);
+					})}
+				</>
+			)}
+
 			{props.modal
 				? createPortal(
 						<section className="watchlist" onClick={removeModal}>
 							<h1>Watchlist</h1>
 							<div className="watchlist-container">
-								<main className="movie-display">
+								<main className="movie-display movie-display-appear">
 									{watchlist.map((movie) => {
 										return (
 											<MovieCard
