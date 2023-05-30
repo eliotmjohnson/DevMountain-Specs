@@ -1,0 +1,22 @@
+.movie-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+    gap: 1rem;
+}
+
+.poster {
+    height: 40rem;
+    margin: 1rem;
+}
+
+.movie-details>p {
+    font-size: 2rem;
+    width: 70%;
+    text-align: center;
+}
+
+.movie-details>h1{
+    font-size: 5rem;
+}

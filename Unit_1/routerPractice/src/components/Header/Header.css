@@ -14,11 +14,14 @@
 }
 
 .nav {
-    color: chartreuse;
     margin: 1rem;
     font-size: 1.5rem;
 }
 
-.link:visited {
+a {
+    color: chartreuse;
+}
+
+a:visited {
     color: chartreuse;
 }

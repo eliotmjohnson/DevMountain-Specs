@@ -1,5 +1,6 @@
 import "./Profile.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { alex, eliot, shan } from "../../assets/images/headshots/Headshots";
 import Header from "../../components/Header/Header";
 import Wrapper from "../../components/ProfileInfo/Wrapper";
@@ -7,9 +8,12 @@ import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
 
 const Profile = () => {
 	const [user, setUser] = useState(0);
+	const navigate = useNavigate();
+	const params = useParams();
 
 	const users = [
 		{
+			id: "C91F82BJ76YO7MV5S4VXF751ECR7OS",
 			name: "Eliot Johnson",
 			headshot: eliot,
 			age: "27",
@@ -17,6 +21,7 @@ const Profile = () => {
 			hobbies: ["Drumming", "Coding", "Making Music"],
 		},
 		{
+			id: "PXZAOPW3ZKU7LZVN9GGFI838T21DFH",
 			name: "Alex Johnson",
 			headshot: alex,
 			age: "31",
@@ -24,23 +29,37 @@ const Profile = () => {
 			hobbies: ["Playing Bass", "Coding", "Cooking"],
 		},
 		{
+			id: "BT3YNACQADNU9I90IYXG4G69R9HCPN",
 			name: "Shannon Johnson",
 			headshot: shan,
 			age: "28",
 			gender: "Female",
-			hobbies: ["Reading", "Listening to podcasts", "Yoga", "Walking", "Working out"],
+			hobbies: [
+				"Reading",
+				"Listening to podcasts",
+				"Yoga",
+				"Walking",
+				"Working out",
+			],
 		},
 	];
 
+	useEffect(() => {
+		const index = users.findIndex((user) => user.id === params.profileId);
+		setUser((prev) => {
+			return index;
+		});
+	}, [params.profileId]);
+
 	const nextUser = () => {
 		if (user < users.length - 1) {
-			setUser((prev) => prev + 1);
+			navigate(`/profile/${users[user + 1].id}`);
 		}
 	};
 
 	const prevUser = () => {
 		if (user > 0) {
-			setUser((prev) => prev - 1);
+			navigate(`/profile/${users[user - 1].id}`);
 		}
 	};
 
@@ -56,8 +75,8 @@ const Profile = () => {
 					hobbies={users[user].hobbies}
 				/>
 				<div>
-					<button onClick={prevUser}>Previous User</button>
-					<button onClick={nextUser}>Next User</button>
+					{user === 0 ? undefined : <button onClick={prevUser}>Previous User</button>}
+					{user === users.length -1 ? undefined : <button onClick={nextUser}>Next User</button>}
 				</div>
 			</Wrapper>
 		</main>

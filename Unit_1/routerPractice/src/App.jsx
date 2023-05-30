@@ -1,20 +1,21 @@
 import "./reset.css";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <Home />,
+		errorElement: <ErrorPage />,
+	},
+	{ path: "profile/:profileId", element: <Profile /> },
+]);
+
 function App() {
-	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/profile"element={<Profile />} />
-				<Route path="*" element={<ErrorPage />} />
-			</Routes>
-		</BrowserRouter>
-	);
+	return <RouterProvider router={router} />;
 }
 
 export default App;

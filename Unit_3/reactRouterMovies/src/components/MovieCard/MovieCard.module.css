@@ -1,0 +1,24 @@
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: cadetblue;
+    padding: 1.5rem;
+    border-radius: .3rem;
+    gap: 1rem;
+    box-shadow: 0 .3rem .7rem .2rem rgb(144, 144, 144);
+}
+
+.poster {
+    height: 30rem;
+}
+
+.title {
+    font-size: 2rem;
+    color: aliceblue;
+}
+
+.vote {
+    font-size: 1.5rem;
+    color: blue;
+}
