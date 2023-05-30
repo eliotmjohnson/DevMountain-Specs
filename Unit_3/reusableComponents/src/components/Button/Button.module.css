@@ -1,0 +1,47 @@
+.default {
+    background-color: rgb(73, 73, 179);
+    border: none;
+    height: 2rem;
+    font-size: 1.3rem;
+    color: azure;
+    border-radius: .4rem;
+    cursor: pointer;
+    box-shadow: 0 .1rem .3rem 0 rgb(8, 8, 8, .5);
+    transition: background-color .4s;
+}
+
+.default:hover {
+    background-color: rgb(50, 50, 117);
+}
+
+.custom {
+    background-color: chartreuse;
+    border: none;
+    height: 2rem;
+    font-size: 1.3rem;
+    color: blue;
+    border-radius: .4rem;
+    cursor: pointer;
+    box-shadow: 0 .1rem .3rem 0 rgb(8, 8, 8, .5);
+    transition: background-color .4s;
+}
+
+.custom:hover {
+    background-color: rgb(176, 255, 97);
+}
+
+.form-button {
+    background-color: rgb(251, 73, 73);
+    border: none;
+    height: 2rem;
+    font-size: 1.3rem;
+    color: azure;
+    border-radius: .4rem;
+    cursor: pointer;
+    box-shadow: 0 .1rem .3rem 0 rgb(8, 8, 8, .5);
+    transition: background-color .4s;
+}
+
+.form-button:hover {
+    background-color: rgb(205, 69, 69);
+}

@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     background-color: #000814;
+    position: relative;
     padding: 2rem;
 }
 
@@ -10,17 +11,21 @@
     color: #FFD60A;
 }
 
-.header>button {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    height: 7rem;
+.button-container {
+    display: flex;
+    top: 0;
+    height: 8rem;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+}
+.button-container>button {
     width: 7rem;
+    height: 3rem;
+    margin: 5rem;
     font-size: 1.3rem;
     border: none;
-    border-radius: 5rem;
+    border-radius: 1rem;
     box-shadow: 0 0px 10px rgb(255, 255, 255);
-    background-image: linear-gradient(to right, #FFD60A, #302b63, crimson);
-    color: aliceblue;
-    z-index: 0;
 }

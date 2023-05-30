@@ -29,7 +29,7 @@ const MovieDisplay = (props) => {
 
 			setLoading(true);
 			instance
-				.get(`https://api.themoviedb.org/3/movie/top_rated/?page=${page}`)
+				.get(`https://api.themoviedb.org/3/movie/popular/?page=${page}`)
 				.then((res) => {
 					setLoading(false);
 					const movieArr = res.data.results;
@@ -37,11 +37,14 @@ const MovieDisplay = (props) => {
 					setMovieData(
 						movieArr.map((movie) => {
 							return {
+								id: movie.id,
 								title: movie.original_title,
 								releaseDate: movie.release_date,
 								description: movie.overview,
 								image: movie.poster_path,
-								inWatchlist: false,
+								inWatchlist: watchlist.some((elem) => elem.id === movie.id)
+									? true
+									: false,
 							};
 						})
 					);
@@ -94,7 +97,7 @@ const MovieDisplay = (props) => {
 	};
 
 	const nextPage = () => {
-		setStateTimeout(400)
+		setStateTimeout(400);
 		setPage((prev) => {
 			return prev + 1;
 		});
@@ -109,65 +112,68 @@ const MovieDisplay = (props) => {
 	};
 
 	return (
-		<main className={`movie-display ` + classChange}>
-			{isLoading ? (
-				<h1 style={{ fontSize: "5rem", color: "aliceblue" }}>
-					{error.value
-						? `${String(error.error).replace("Axios", "")}`
-						: "Loading..."}
-				</h1>
-			) : (
-				<>
-					<button onClick={prevPage}>Back</button>
-					<button onClick={nextPage}>Next</button>
-					{movieData.map((movie) => {
-						return (
-							<MovieCard
-								key={movie.title}
-								classes=""
-								title={movie.title}
-								description={movie.description}
-								releaseDate={movie.releaseDate}
-								image={`https://image.tmdb.org/t/p/original${movie.image}`}
-								sendMovieData={sendToWatchlist}
-								buttonTitle={
-									!movie.inWatchlist
-										? "Add to Watchlist"
-										: "Remove From Watchlist"
-								}
-							/>
-						);
-					})}
-				</>
-			)}
-
-			{props.modal
-				? createPortal(
-						<section className="watchlist" onClick={removeModal}>
-							<h1>Watchlist</h1>
-							<div className="watchlist-container">
-								<main className="movie-display movie-display-appear">
-									{watchlist.map((movie) => {
-										return (
-											<MovieCard
-												key={movie.title}
-												classes="watchlist-card"
-												title={movie.title}
-												description={movie.description}
-												releaseDate={movie.releaseDate}
-												image={`https://image.tmdb.org/t/p/original${movie.image}`}
-												sendMovieData={sendToWatchlist}
-												buttonTitle="Remove From Watchlist"
-											/>
-										);
-									})}
-								</main>
-							</div>
-						</section>,
-						document.getElementById("watchlist-modal")
-				  )
-				: ""}
-		</main>
+		<div className="movie-display-container">
+			<div className="buttons">
+				<button onClick={prevPage}>Back</button>
+				<button onClick={nextPage}>Next</button>
+			</div>
+			<main className={`movie-display ` + classChange}>
+				{isLoading ? (
+					<h1 style={{ fontSize: "5rem", color: "aliceblue" }}>
+						{error.value
+							? `${String(error.error).replace("Axios", "")}`
+							: "Loading..."}
+					</h1>
+				) : (
+					<>
+						{movieData.map((movie) => {
+							return (
+								<MovieCard
+									key={movie.title}
+									classes=""
+									title={movie.title}
+									description={movie.description}
+									releaseDate={movie.releaseDate}
+									image={`https://image.tmdb.org/t/p/original${movie.image}`}
+									sendMovieData={sendToWatchlist}
+									buttonTitle={
+										!movie.inWatchlist
+											? "Add to Watchlist"
+											: "Remove From Watchlist"
+									}
+								/>
+							);
+						})}
+					</>
+				)}
+				{props.modal
+					? createPortal(
+							<section className="watchlist" onClick={removeModal}>
+								<h1>Watchlist</h1>
+								<div className="watchlist-container">
+									<main className="movie-display movie-display-appear">
+										{watchlist.map((movie) => {
+											return (
+												<MovieCard
+													key={movie.title}
+													classes="watchlist-card"
+													title={movie.title}
+													description={movie.description}
+													releaseDate={movie.releaseDate}
+													image={`https://image.tmdb.org/t/p/original${movie.image}`}
+													sendMovieData={sendToWatchlist}
+													buttonTitle="Remove From Watchlist"
+												/>
+											);
+										})}
+									</main>
+								</div>
+							</section>,
+							document.getElementById("watchlist-modal")
+					  )
+					: ""}
+			</main>
+		</div>
 	);
 };
 

@@ -7,6 +7,27 @@
     transition: opacity .4s;
 }
 
+.movie-display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.buttons>button {
+    width: 7rem;
+    height: 3rem;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0px 10px rgb(255, 255, 255);
+}
+
 .movie-display-appear {
     opacity: 1;
 }

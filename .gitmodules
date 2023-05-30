@@ -4,3 +4,6 @@
 [submodule "Unit_2/projectTwo"]
 	path = Unit_2/projectTwo
 	url = https://github.com/eliotmjohnson/DMSpecs-Project-2
+[submodule "Unit_3/projectThree"]
+	path = Unit_3/projectThree
+	url = https://github.com/eliotmjohnson/DMSpecs-Project-3
