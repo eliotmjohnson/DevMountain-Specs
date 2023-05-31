@@ -5,7 +5,7 @@ export const State = createContext();
 export const StateProvider = (props) => {
 	const [state, dispatch] = useReducer(stateReducer, {movies: [], selectedMovie: []});
 
-	const ref = useRef();
+	const ref = useRef(new Map());
 
 	return (
 		<State.Provider value={{ state, dispatch, refs: { ref } }}>
