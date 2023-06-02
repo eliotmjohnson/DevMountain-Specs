@@ -4,6 +4,7 @@
     align-items: center;
     background-color: red;
     padding: 2rem;
+    padding-right: 0;
     height: 8rem;
     border-bottom: .2rem solid aliceblue;
     border-bottom-left-radius: 1rem;
@@ -76,4 +77,17 @@
     animation-duration: 1s;
     animation-timing-function: linear;
     background-color: red;
+}
+
+@media only screen and (max-width: 500px) {
+    .header-logo{
+        display: none;
+    }
+    .logo{
+        height: 20rem;
+        opacity: .4;
+        position: absolute;
+        left: 2rem;
+        transform: rotate(10deg);
+    }
 }

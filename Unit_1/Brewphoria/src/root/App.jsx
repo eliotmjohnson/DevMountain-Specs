@@ -18,7 +18,7 @@ const App = () => {
 		<>
 			<Header setText={setNavText} text={navText} />
 			<section className="pictures">
-				<PictureBox url={pic1}></PictureBox>
+				<PictureBox url={pic1} />
 				<PictureBox url={pic2}></PictureBox>
 				<PictureBox url={pic3}></PictureBox>
 				<PictureBox url={pic4}></PictureBox>

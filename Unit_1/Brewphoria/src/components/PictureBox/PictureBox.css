@@ -1,11 +1,12 @@
 .box {
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     background-color: aliceblue;
     border-bottom: solid red .4rem;
-    min-height: 20rem;
-    max-height: 50rem;
+    aspect-ratio: 1.5/1;
+    width: 80%;
     padding: 1rem;
     margin: 1rem;
     border-radius: 2rem;
@@ -13,8 +14,24 @@
     color: aliceblue;
 }
 
-.box>img {
-    max-width: 90%;
-    min-width: 50%;
-    max-height: 50rem;
+.picture {
+    width: 90%;
+    height: 95%;
+    object-fit: cover;
+    translate: 0 7rem;
+    opacity: 0;
+    transition: translate 1s, opacity 1s;
+}
+
+.active {
+    translate: 0;
+    opacity: 1;
+}
+
+@media only screen and (max-width: 500px) {
+    .picture {
+        width: 90%;
+        height: 80%;
+        object-fit: cover;
+    }
 }

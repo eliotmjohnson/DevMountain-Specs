@@ -1,5 +1,5 @@
 {
-  "name": "reusablecomponents",
+  "name": "projectoutline",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intersection-observer": "^9.4.4"
+    "react-intersection-observer": "^9.4.4",
+    "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
